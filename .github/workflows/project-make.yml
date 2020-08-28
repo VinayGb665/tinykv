@@ -1,0 +1,15 @@
+name: Run tests on project
+# This workflow is triggered on pushes to the repository.
+on: [push]
+jobs:
+  build:
+    # Job name is Greeting
+    name: Test project1
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '^1.13.1' # The Go version to download (if necessary) and use.
+    - run: make project1
